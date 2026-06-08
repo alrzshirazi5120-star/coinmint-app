@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کوین مینت</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--tg-theme-bg-color, #1c1c1e);
+    color: var(--tg-theme-text-color, #ffffff);
+    min-height: 100vh;
+    padding: 16px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 20px 0 24px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .header p {
+    font-size: 13px;
+    color: #8e8e93;
+    margin-top: 4px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.1s;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-family: inherit;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+    opacity: 0.85;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0A84FF, #0066cc);
+    font-size: 17px;
+    padding: 18px 20px;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .row .btn {
+    flex: 1;
+    font-size: 14px;
+    padding: 14px 10px;
+  }
+
+  .btn-purple { background: linear-gradient(135deg, #5E5CE6, #4b4ac7); }
+  .btn-teal   { background: linear-gradient(135deg, #30D158, #25a244); }
+  .btn-orange { background: linear-gradient(135deg, #FF9F0A, #cc7d00); }
+  .btn-pink   { background: linear-gradient(135deg, #FF375F, #cc1a3f); }
+  .btn-indigo { background: linear-gradient(135deg, #007AFF, #005fcc); }
+  .btn-gray   { background: linear-gradient(135deg, #3a3a3c, #2c2c2e); }
+
+  .emoji { font-size: 20px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 کوین مینت</h1>
+  <p>خدمات تخصصی ارز دیجیتال</p>
+</div>
+
+<div class="grid">
+
+  <button class="btn btn-primary" onclick="action('channel')">
+    <span class="emoji">📈</span>
+    کانال تحلیل روزانه
+  </button>
+
+  <div class="row">
+    <button class="btn btn-purple" onclick="action('ai')">
+      <span class="emoji">🤖</span>
+      تحلیل با هوش مصنوعی
+    </button>
+    <button class="btn btn-teal" onclick="action('support')">
+      <span class="emoji">💬</span>
+      پشتیبانی
+    </button>
+  </div>
+
+  <div class="row">
+    <button class="btn btn-orange" onclick="action('profile')">
+      <span class="emoji">👤</span>
+      پروفایل من
+    </button>
+    <button class="btn btn-pink" onclick="action('partner')">
+      <span class="emoji">🤝</span>
+      همکاری با ما
+    </button>
+  </div>
+
+  <div class="row">
+    <button class="btn btn-indigo" onclick="action('exchange')">
+      <span class="emoji">🔗</span>
+      اتصال به صرافی
+    </button>
+    <button class="btn btn-gray" onclick="action('performance')">
+      <span class="emoji">📊</span>
+      عملکرد ماهانه
+    </button>
+  </div>
+
+</div>
+
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.ready();
+  tg.expand();
+
+  function action(type) {
+    tg.sendData(type);
+  }
+</script>
+
+</body>
+</html>
