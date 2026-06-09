@@ -4,13 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>کوین مینت</title>
+
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: var(--tg-theme-bg-color, #1c1c1e);
+    background: var(--tg-theme-bg-color, #172030);
     color: var(--tg-theme-text-color, #ffffff);
     min-height: 100vh;
     padding: 16px;
@@ -18,19 +24,19 @@
 
   .header {
     text-align: center;
-    padding: 20px 0 24px;
+    padding: 18px 0 22px;
   }
 
   .header h1 {
     font-size: 22px;
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
   }
 
   .header p {
     font-size: 13px;
-    color: #8e8e93;
-    margin-top: 4px;
+    color: #9ca3af;
+    margin-top: 6px;
   }
 
   .grid {
@@ -39,56 +45,72 @@
     gap: 10px;
   }
 
-  .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 20px;
-    border-radius: 14px;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.1s, opacity 0.1s;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    font-family: inherit;
-  }
-
-  .btn:active {
-    transform: scale(0.97);
-    opacity: 0.85;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #0A84FF, #0066cc);
-    font-size: 17px;
-    padding: 18px 20px;
-  }
-
   .row {
     display: flex;
     gap: 10px;
   }
 
-  .row .btn {
-    flex: 1;
-    font-size: 14px;
-    padding: 14px 10px;
+  .btn {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 12px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.1s ease, opacity 0.1s ease;
   }
 
-  .btn-purple { background: linear-gradient(135deg, #5E5CE6, #4b4ac7); }
-  .btn-teal   { background: linear-gradient(135deg, #30D158, #25a244); }
-  .btn-orange { background: linear-gradient(135deg, #FF9F0A, #cc7d00); }
-  .btn-pink   { background: linear-gradient(135deg, #FF375F, #cc1a3f); }
-  .btn-indigo { background: linear-gradient(135deg, #007AFF, #005fcc); }
-  .btn-gray   { background: linear-gradient(135deg, #3a3a3c, #2c2c2e); }
+  .btn:active {
+    transform: scale(0.96);
+    opacity: 0.85;
+  }
 
-  .emoji { font-size: 20px; }
+  .row .btn {
+    flex: 1;
+    min-height: 58px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #0A84FF, #0066cc);
+    font-size: 17px;
+    min-height: 62px;
+  }
+
+  .btn-purple {
+    background: linear-gradient(135deg, #5E5CE6, #4b4ac7);
+  }
+
+  .btn-teal {
+    background: linear-gradient(135deg, #30D158, #25a244);
+  }
+
+  .btn-orange {
+    background: linear-gradient(135deg, #FF9F0A, #cc7d00);
+  }
+
+  .btn-pink {
+    background: linear-gradient(135deg, #FF375F, #cc1a3f);
+  }
+
+  .btn-indigo {
+    background: linear-gradient(135deg, #007AFF, #005fcc);
+  }
+
+  .btn-gray {
+    background: linear-gradient(135deg, #3a3a3c, #2c2c2e);
+  }
+
+  .emoji {
+    font-size: 18px;
+    margin-left: 6px;
+  }
 </style>
 </head>
+
 <body>
 
 <div class="header">
@@ -108,6 +130,7 @@
       <span class="emoji">🤖</span>
       تحلیل با هوش مصنوعی
     </button>
+
     <button class="btn btn-teal" onclick="action('support')">
       <span class="emoji">💬</span>
       پشتیبانی
@@ -119,6 +142,7 @@
       <span class="emoji">👤</span>
       پروفایل من
     </button>
+
     <button class="btn btn-pink" onclick="action('partner')">
       <span class="emoji">🤝</span>
       همکاری با ما
@@ -130,6 +154,7 @@
       <span class="emoji">🔗</span>
       اتصال به صرافی
     </button>
+
     <button class="btn btn-gray" onclick="action('performance')">
       <span class="emoji">📊</span>
       عملکرد ماهانه
@@ -140,11 +165,12 @@
 
 <script>
   const tg = window.Telegram.WebApp;
+
   tg.ready();
-  tg.expand();
 
   function action(type) {
     tg.sendData(type);
+    tg.close();
   }
 </script>
 
