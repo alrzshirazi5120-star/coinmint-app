@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>کوین مینت</title>
+<title>Mini App Items</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #172030; color: #ffffff; min-height: 100vh; padding: 16px; }
-  .header { text-align: center; padding: 20px 0 24px; }
-  .header h1 { font-size: 22px; font-weight: 700; }
-  .header p { font-size: 13px; color: #8e8e93; margin-top: 4px; }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #172030; color: #fff; min-height: 100vh; padding: 16px; }
   .grid { display: flex; flex-direction: column; gap: 10px; }
   .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 20px; border-radius: 14px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; text-align: center; color: #fff; transition: transform 0.1s, opacity 0.1s; }
   .btn:active { transform: scale(0.97); opacity: 0.85; }
@@ -26,11 +23,6 @@
 </style>
 </head>
 <body>
-
-<div class="header">
-  <h1>کوین مینت 📊</h1>
-  <p>خدمات تخصصی ارز دیجیتال</p>
-</div>
 
 <div class="grid">
   <button class="btn btn-blue" onclick="action('channel')">کانال تحلیل روزانه 📈</button>
@@ -50,7 +42,7 @@
 
 <script>
   const tg = window.Telegram.WebApp;
-  tg.ready(); // بدون tg.expand() برای باز شدن پایین ربات
+  tg.ready(); // بدون tg.expand() برای پایین باز شدن
 
   function action(type) {
     tg.sendData(type); // ارسال داده به ربات
