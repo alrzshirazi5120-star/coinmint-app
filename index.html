@@ -3,50 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mini App Items</title>
+<title>Mini App</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #172030; color: #fff; min-height: 100vh; padding: 16px; }
-  .grid { display: flex; flex-direction: column; gap: 10px; }
-  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 20px; border-radius: 14px; border: none; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; text-align: center; color: #fff; transition: transform 0.1s, opacity 0.1s; }
-  .btn:active { transform: scale(0.97); opacity: 0.85; }
-  .row { display: flex; gap: 10px; }
-  .row .btn { flex: 1; font-size: 14px; padding: 14px 10px; }
-  .btn-blue { background: linear-gradient(135deg, #0A84FF, #0066cc); }
-  .btn-green { background: linear-gradient(135deg, #30D158, #25a244); }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--tg-theme-bg-color, #1c1c1e);
+    color: var(--tg-theme-text-color, #ffffff);
+    min-height: 100vh;
+    padding: 16px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.1s;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-family: inherit;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+    opacity: 0.85;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .row .btn {
+    flex: 1;
+    font-size: 14px;
+    padding: 14px 10px;
+  }
+
   .btn-purple { background: linear-gradient(135deg, #5E5CE6, #4b4ac7); }
-  .btn-red { background: linear-gradient(135deg, #FF375F, #cc1a3f); }
+  .btn-teal   { background: linear-gradient(135deg, #30D158, #25a244); }
   .btn-orange { background: linear-gradient(135deg, #FF9F0A, #cc7d00); }
-  .btn-gray { background: linear-gradient(135deg, #3a3a3c, #2c2c2e); }
+  .btn-pink   { background: linear-gradient(135deg, #FF375F, #cc1a3f); }
+  .btn-indigo { background: linear-gradient(135deg, #007AFF, #005fcc); }
+  .btn-gray   { background: linear-gradient(135deg, #3a3a3c, #2c2c2e); }
+
   .emoji { font-size: 20px; }
 </style>
 </head>
 <body>
 
 <div class="grid">
-  <button class="btn btn-blue" onclick="action('channel')">کانال تحلیل روزانه 📈</button>
+
   <div class="row">
-    <button class="btn btn-green" onclick="action('support')">پشتیبانی 💬</button>
-    <button class="btn btn-purple" onclick="action('ai')">تحلیل با هوش مصنوعی 🤖</button>
+    <button class="btn btn-indigo" onclick="action('channel')">
+      📈 کانال تحلیل روزانه
+    </button>
   </div>
+
   <div class="row">
-    <button class="btn btn-red" onclick="action('partner')">همکاری با ما 🤝</button>
-    <button class="btn btn-orange" onclick="action('profile')">پروفایل من 👤</button>
+    <button class="btn btn-purple" onclick="action('ai')">
+      🤖 تحلیل با هوش مصنوعی
+    </button>
+    <button class="btn btn-teal" onclick="action('support')">
+      💬 پشتیبانی
+    </button>
   </div>
+
   <div class="row">
-    <button class="btn btn-blue" onclick="action('exchange')">اتصال به صرافی 🔗</button>
-    <button class="btn btn-gray" onclick="action('performance')">عملکرد ماهانه 📊</button>
+    <button class="btn btn-orange" onclick="action('profile')">
+      👤 پروفایل من
+    </button>
+    <button class="btn btn-pink" onclick="action('partner')">
+      🤝 همکاری با ما
+    </button>
   </div>
+
+  <div class="row">
+    <button class="btn btn-gray" onclick="action('performance')">
+      📊 عملکرد ماهانه
+    </button>
+    <button class="btn btn-indigo" onclick="action('exchange')">
+      🔗 اتصال به صرافی
+    </button>
+  </div>
+
 </div>
 
 <script>
   const tg = window.Telegram.WebApp;
-  tg.ready(); // بدون tg.expand() برای پایین باز شدن
+  tg.ready();
+  tg.expand();
 
   function action(type) {
-    tg.sendData(type); // ارسال داده به ربات
-    tg.close();        // بستن Mini App بعد از کلیک
+    tg.sendData(type);
   }
 </script>
 
